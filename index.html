@@ -1,188 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-</head>
+    <style>
 
+        body {
+            display: contents;
+            text-align: center;
+           
+        }
+        #quote {
+            font-size: 50px;
+            margin: 100PX;
+            color: rgb(255, 0, 0);
+        }
+    </style>
+</head>
 <body>
 
-    <script>
+<div id="quote"></div>
 
-        // class Person{
-        //     constructor(name,age)
-        //     {
-        //         this.name=name;
-        //         this.age=age;
-        //     }
-        //     greet(){
-        //         return(the name is ${this.name} and age is ${this.age})
-        //     }
-        // }
+<script>
+    var quotes =[
+        "The purpose of our lives is to be happy.",
+        "Get busy living or get busy dying",
+        "Life is what happens when you're busy making other plans.",
+        "The only way to do great work is to love what you do.",
+        "I didn't know there were so many",
+           "many of those books are out of print",
+           "you can have as many as you like",
+           "I have as many books as you",
+           "I've told you this many times",
+           "how many will come?",
+           "I don't have very many books",
+           "there are too many"
+    ];
 
-        // const p1=new Person("yash",20)
-        // console.log(p1.greet());
-
-
-
-        // var obj={
-        //     name: "yash",
-        //     age: 23,
-        //     phoneno: "11224433",
-        //     greet(){
-        //         console.log(the name is ${this.name });
-        //     }
-        // }
-        // console.log(obj.greet());
-
-
-
-        // class person {
-        //     constructor(name, age) {
-        //         this.name = name
-        //         this.age = age
-        //     }
-        //     greet() {
-        //         console.log(the name is ${this.name} and age is ${this.age});
-        //     }
-        // }
-        // var obj = new person("raj", 22)
-        // console.log(obj);
-        // obj.greet();
-
-
-
-        // Inheritance
-
-
-
-        // var parentObj={
-        //     greet(){
-        //         console.log("parents obj");
-        //     }
-        // }
-        // var childobj = Object.assign(parentObj)
-        // childobj.greet()
-
-
-        // class Parents{
-        //     greet(){
-        //         console.log("parents obj");
-        //     }
-        // }
-        // class Child extends Parents{
-        //     greet(){
-        //         super.greet()
-        //         console.log("child obj");
-        //     }
-        // }
-        // var child = new Child()
-        // child.greet()
-
-
-        // class GrandParents{
-        //     greet(){
-        //         console.log("grandparents");
-        //     }
-        // }
-        // class Parents extends GrandParents{}
-        // class Child extends Parents{}
-
-        // var child = new Child()
-        // child.greet()
-
-
-
-
-        // Constructor
-
-
-
-
-        // Default Constructor
-
-
-        // class Example{
-        //     constructor(){
-        //         this.name="shyam"
-        //     }
-        // }
-        // const obj = new Example()
-        // console.log(obj.name);
-
-
-        // parameter constructor
-
-
-        // class Example{
-        //     constructor(name){
-        //         this.name = name
-        //     }
-        // }
-        // const obj = new Example("ram")
-        // console.log(obj.name);
-
-
-        // Copy constructor
-
-
-        // class Example{
-        //     constructor(obj){
-        //         this.name = obj.name
-        //     }
-        // }
-        // const obj = new Example({name:"yash"})
-        // const obj1 = new Example(obj)
-        // console.log(obj1.name);
-
-
-
-
-
-
-        /* Polymorphism*/
-
-
-
-
-        //    Function Overriding
-
-
-        // class Animal{
-        //     speak(){
-        //         console.log("animal class");
-        //     }
-        // }
-
-        // class Dog extends Animal{
-        //     speak(){
-        //         console.log("dog class");
-        //     }
-        // }
-        // var animal= new Animal()
-        // animal.speak()
-        // var dog = new Dog()
-        // dog.speak()
-
-
-
-
-        // Function Overloding
-
-        // function greet(name,age){
-        //     if(age !== undefined){
-        //         console.log( my name is ${name} and age is ${age});
-        //     }else{
-        //         console.log( my name is ${name});
-        //     }
-        // }
-        // greet("yash",80)
-        // greet("yash")
-
-    </script>
+    function generateQuote() {
+        var randomIndex = Math.floor(Math.random() * quotes.length);
+        document.getElementById("quote").innerHTML = quotes[randomIndex] 
+        
+    }
+    setInterval(generateQuote, 1000);
+</script>
 
 </body>
-
 </html>
