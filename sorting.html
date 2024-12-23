@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Sorting</title>
+    <style>
+        .product {
+            border: 1px solid #ddd;
+            margin: 10px;
+            padding: 10px;
+            display: inline-block;
+            width: 200px;
+            text-align: center;
+        }
+        .product img {
+            width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Product List</h1>
+    <select id="sortOptions">
+        <option value="name">Sort by Name</option>
+        <option value="price-asc">Sort by Price (Low to High)</option>
+        <option value="price-desc">Sort by Price (High to Low)</option>
+    </select>
+    <div id="productList"></div>
+
+    <script>// Sample Product Data
+        const products = [
+            { name: "Product A", price: 30, image: "https://via.placeholder.com/200" },
+            { name: "Product B", price: 20, image: "https://via.placeholder.com/200" },
+            { name: "Product C", price: 50, image: "https://via.placeholder.com/200" },
+            { name: "Product D", price: 40, image: "https://via.placeholder.com/200" },
+        ];
+        
+        // Function to Display Products
+        function displayProducts(products) {
+            const productList = document.getElementById("productList");
+            productList.innerHTML = ""; // Clear existing products
+            products.forEach(product => {
+                const productDiv = document.createElement("div");
+                productDiv.classList.add("product");
+                productDiv.innerHTML = `
+                    <img src="${product.image}" alt="${product.name}">
+                    <h3>${product.name}</h3>
+                    <p>Price: $${product.price}</p>
+                `;
+                productList.appendChild(productDiv);
+            });
+        }
+        
+        // Sorting Function
+        function sortProducts(criteria) {
+            let sortedProducts = [...products];
+            if (criteria === "name") {
+                sortedProducts.sort((a, b) => a.name.localeCompare(b.name));
+            } else if (criteria === "price-asc") {
+                sortedProducts.sort((a, b) => a.price - b.price);
+            } else if (criteria === "price-desc") {
+                sortedProducts.sort((a, b) => b.price - a.price);
+            }
+            displayProducts(sortedProducts);
+        }
+        
+        // Event Listener for Sorting
+        document.getElementById("sortOptions").addEventListener("change", (event) => {
+            sortProducts(event.target.value);
+        });
+        
+        // Initial Display
+        displayProducts(products);
+        </script>
+</body>
+</html>
